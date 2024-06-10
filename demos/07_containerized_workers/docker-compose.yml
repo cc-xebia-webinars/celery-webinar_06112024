@@ -1,0 +1,70 @@
+services:
+  worker1:
+    image: "task_worker"
+    environment:
+      WORKER_NAME: "worker1"
+      BROKER_CONN_STR: "pyamqp://brokeruser:brokerpass@broker:5672//"
+      RESULT_BACKEND_CONN_STR: "db+postgresql://postgres:postgres@database:5432/celery"
+    links:
+      - database
+      - broker
+    depends_on:
+      - database
+      - broker
+  worker2:
+    image: "task_worker"
+    environment:
+      WORKER_NAME: "worker2"
+      BROKER_CONN_STR: "pyamqp://brokeruser:brokerpass@broker:5672//"
+      RESULT_BACKEND_CONN_STR: "db+postgresql://postgres:postgres@database:5432/celery"
+    links:
+      - database
+      - broker
+    depends_on:
+      - database
+      - broker
+  worker3:
+    image: "task_worker"
+    environment:
+      WORKER_NAME: "worker3"
+      BROKER_CONN_STR: "pyamqp://brokeruser:brokerpass@broker:5672//"
+      RESULT_BACKEND_CONN_STR: "db+postgresql://postgres:postgres@database:5432/celery"
+    links:
+      - database
+      - broker
+    depends_on:
+      - database
+      - broker
+  broker:
+    image: "rabbitmq:3.11.16-management"
+    ports:
+      - "5091:5672"
+      - "8091:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "brokeruser"
+      RABBITMQ_DEFAULT_PASS: "brokerpass"
+  database:
+    image: "postgres:15.3-alpine"
+    ports:
+      - "5090:5432"
+    volumes:
+      - "database_data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+  database-client-tool:
+    image: "dpage/pgadmin4:7.1"
+    ports:
+      - "8090:80"
+    volumes:
+      - "database_client_tool_data:/var/lib/pgadmin"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "dbuser@dbhost.data"
+      PGADMIN_DEFAULT_PASSWORD: "dbpass"
+    links:
+      - database
+    depends_on:
+      - database
+volumes:
+  database_data: {}
+  database_client_tool_data: {}

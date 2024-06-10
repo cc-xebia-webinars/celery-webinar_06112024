@@ -1,0 +1,9 @@
+services:
+  broker:
+    image: "rabbitmq:3.11.16-management"
+    ports:
+      - "5091:5672"
+      - "8091:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "brokeruser"
+      RABBITMQ_DEFAULT_PASS: "brokerpass"
