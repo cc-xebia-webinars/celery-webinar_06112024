@@ -24,8 +24,8 @@
 
 ## Stop the Broker
 
-1. Bring down the broker docker containers.
+1. Bring down the broker docker container and delete the created volume.
 
     ```bash
-    docker compose down
+    docker compose down -v
     ```

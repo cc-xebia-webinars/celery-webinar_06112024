@@ -12,5 +12,7 @@ app = create_celery_app(
 )
 fibonacci = wire_up_tasks(app)
 
+print("task requests")
 for i in range(10000):
+    print(f"task request: {i}")
     fibonacci.delay(i)

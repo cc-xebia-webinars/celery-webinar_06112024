@@ -28,7 +28,7 @@ async def main() -> None:
 
     # apply_async() returns an instance of AsyncResult that lets you inspect the
     # async_tasks = [tasks.add.apply_async((2, 2), countdown=5) for _ in range(100)]
-    async_tasks = [tasks.add.apply_async((2, 2),) for _ in range(10000)]
+    async_tasks = [tasks.add.apply_async((2, 2),) for _ in range(5)]
 
     # run_in_executor() runs a function in a separate thread and returns the result
     # the `async_task.get` function returns the result of the task, once they all

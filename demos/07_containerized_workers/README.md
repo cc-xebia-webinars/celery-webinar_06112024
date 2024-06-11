@@ -5,7 +5,7 @@
 1. Create a new environment and install packages with `pip`.
 
     ```bash
-    cd task_tool/apps/task_shared
+    cd 07_containerized_workers/apps/task_shared
 
     micromamba create -n task-shared python=3.11.3
 
@@ -25,7 +25,7 @@
 1. Build the Task Worker Docker Image.
 
     ```bash
-    cd cd task_tool/apps/task_worker
+    cd 07_containerized_workers/apps/task_worker
 
     docker build -t task_worker .
     ```
@@ -35,7 +35,7 @@
 1. Bring up the servers with Docker Compose.
 
     ```bash
-    cd task_tool
+    cd 07_containerized_workers
 
     docker compose up -d
     ```
@@ -68,7 +68,7 @@
 1. Create a new environment and install the packages with `pip`.
 
     ```bash
-    cd task_tool/apps/task_manager
+    cd 07_containerized_workers/apps/task_manager
 
     micromamba create -n task-manager python=3.11.3
 

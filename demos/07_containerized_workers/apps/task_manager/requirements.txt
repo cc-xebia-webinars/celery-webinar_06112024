@@ -27,7 +27,7 @@ python-dotenv==1.0.0
 pytz==2023.3
 six==1.16.0
 SQLAlchemy==2.0.20
-task-shared @ file:///home/student/stock-data-tool/apps/task_manager/task_shared-0.1.0-py3-none-any.whl#sha256=fd8085fb4c5ac5b279a3cc2c1051daf88a50fa70d8f203dac1b3fec29ba039a8
+task-shared @ file:///home/ericwgreene//g/gh/cc-xebia-webinars/celery-webinar_06112024/demos/07_containerized_workers/apps/task_manager/task_shared-0.1.0-py3-none-any.whl
 typing_extensions==4.5.0
 vine==5.0.0
 wcwidth==0.2.6
